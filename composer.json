@@ -6,6 +6,9 @@
   "require": {
     "php": "^8.1",
     "easycorp/easyadmin-bundle": "^4",
+    "chrisullyott/php-filesize": "^4.2",
+    "symfony/options-resolver": "^6.4",
+    "symfony/form": "^6.4",
     "symfony/config": "^6.4",
     "symfony/dependency-injection": "^6.4",
     "symfony/http-kernel": "^6.4",
