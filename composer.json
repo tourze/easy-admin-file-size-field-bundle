@@ -1,0 +1,30 @@
+{
+  "name": "tourze/easy-admin-file-size-field-bundle",
+  "description": "EasyAdmin扩展",
+  "type": "symfony-bundle",
+  "license": "MIT",
+  "require": {
+    "php": "^8.1",
+    "easycorp/easyadmin-bundle": "^4",
+    "symfony/config": "^6.4",
+    "symfony/dependency-injection": "^6.4",
+    "symfony/http-kernel": "^6.4",
+    "symfony/framework-bundle": "^6.4",
+    "symfony/yaml": "^6.4 || ^7.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Tourze\\EasyAdminFileSizeFieldBundle\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tourze\\EasyAdminFileSizeFieldBundle\\Tests\\": "tests"
+    }
+  },
+  "require-dev": {
+    "phpstan/phpstan": "^2.1",
+    "phpunit/phpunit": "^10.0",
+    "symfony/phpunit-bridge": "^6.4"
+  }
+}

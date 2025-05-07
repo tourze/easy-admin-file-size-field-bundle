@@ -1,0 +1,11 @@
+
+.easy-admin-file-size-row.form-group .form-widget>.form-widget-compound>div {
+    display: flex;
+    flex-direction: row;
+}
+.easy-admin-file-size-row.form-group .form-widget>.form-widget-compound>div>div {
+    margin-right: 10px;
+}
+.easy-admin-file-size-row.form-group .form-widget>.form-widget-compound>div .flex-fill {
+    display: none;
+}

@@ -1,0 +1,6 @@
+{# 显示格式化后的文件大小 #}
+{% if ea.crud.currentAction == 'detail' or ea.crud.currentAction == 'index' %}
+    {{ field.formattedValue }}
+{% else %}
+    {{ form_row(field.formattedValue) }}
+{% endif %}
