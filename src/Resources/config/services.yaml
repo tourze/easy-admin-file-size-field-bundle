@@ -8,3 +8,5 @@ services:
     resource: '../../Field/'
   Tourze\EasyAdminFileSizeFieldBundle\Form\:
     resource: '../../Form/'
+  Tourze\EasyAdminFileSizeFieldBundle\Twig\:
+    resource: '../../Twig/'
