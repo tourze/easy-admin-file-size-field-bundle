@@ -34,7 +34,7 @@ final class FileSizeField implements FieldInterface
     {
         try {
             return (new FileSize($bytes))->asAuto();
-        } catch  (\Throwable $e) {
+        } catch (\Throwable $e) {
         }
         return $bytes . ' B';
     }
