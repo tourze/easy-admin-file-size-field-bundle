@@ -21,6 +21,7 @@
     "symfony/property-access": "^6.4",
     "symfony/string": "^6.4",
     "symfony/yaml": "^6.4 || ^7.1",
+    "tourze/symfony-integration-test-kernel": "0.0.*",
     "twig/twig": "^3.13|^4.0"
   },
   "require-dev": {
