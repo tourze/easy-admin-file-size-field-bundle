@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tourze\EasyAdminFileSizeFieldBundle\Field;
 
 use ChrisUllyott\FileSize;
@@ -24,7 +26,8 @@ final class FileSizeField implements FieldInterface
             ->setFormType(FileSizeType::class)
             ->addCssClass('field-file-size')
             ->addCssFiles(Asset::new('bundles/easyadminfilesizefield/file-size-field.css'))
-            ->formatValue(FileSizeField::getFormatValue(...));
+            ->formatValue(FileSizeField::getFormatValue(...))
+        ;
     }
 
     /**
@@ -36,6 +39,7 @@ final class FileSizeField implements FieldInterface
             return (new FileSize($bytes))->asAuto();
         } catch (\Throwable $e) {
         }
+
         return $bytes . ' B';
     }
 }

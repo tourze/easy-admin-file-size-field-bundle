@@ -1,37 +1,44 @@
 <?php
 
-namespace Tourze\EasyAdminFileSizeFieldBundle\Twig;
+declare(strict_types=1);
 
-use PHPUnit\Framework\TestCase;
-use Tourze\EasyAdminFileSizeFieldBundle\Field\FileSizeField;
+namespace Tourze\EasyAdminFileSizeFieldBundle\Tests\Twig;
 
-class BytesFormatterExtensionTest extends TestCase
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
+use Tourze\EasyAdminFileSizeFieldBundle\Twig\BytesFormatterExtension;
+use Tourze\PHPUnitSymfonyKernelTest\AbstractIntegrationTestCase;
+
+/**
+ * @internal
+ */
+#[CoversClass(BytesFormatterExtension::class)]
+#[RunTestsInSeparateProcesses]
+final class BytesFormatterExtensionTest extends AbstractIntegrationTestCase
 {
     private BytesFormatterExtension $extension;
 
-    protected function setUp(): void
+    protected function onSetUp(): void
     {
-        $this->extension = new BytesFormatterExtension();
+        $this->extension = self::getService(BytesFormatterExtension::class);
     }
 
-    public function testGetFilters(): void
+    public function testExtensionExists(): void
     {
-        $filters = $this->extension->getFilters();
-        
-        $this->assertCount(1, $filters);
-        $this->assertInstanceOf(\Twig\TwigFilter::class, $filters[0]);
-        $this->assertEquals('format_bytes', $filters[0]->getName());
+        $this->assertInstanceOf(BytesFormatterExtension::class, $this->extension);
     }
 
-    /**
-     * @dataProvider provideBytesData
-     */
+    #[DataProvider('provideBytesData')]
     public function testFormatBytes(?int $bytes, string $expected): void
     {
         $result = $this->extension->formatBytes($bytes);
         $this->assertEquals($expected, $result);
     }
 
+    /**
+     * @return array<string, array{0: int|null, 1: string}>
+     */
     public static function provideBytesData(): array
     {
         return [

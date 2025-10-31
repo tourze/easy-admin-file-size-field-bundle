@@ -1,31 +1,29 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tourze\EasyAdminFileSizeFieldBundle\Twig;
 
+use Symfony\Component\DependencyInjection\Attribute\Autoconfigure;
 use Tourze\EasyAdminFileSizeFieldBundle\Field\FileSizeField;
-use Twig\Extension\AbstractExtension;
-use Twig\TwigFilter;
+use Twig\Attribute\AsTwigFilter;
 
 /**
  * 字节格式化Twig扩展
  */
-class BytesFormatterExtension extends AbstractExtension
+#[Autoconfigure(public: true)]
+class BytesFormatterExtension
 {
-    public function getFilters(): array
-    {
-        return [
-            new TwigFilter('format_bytes', $this->formatBytes(...)),
-        ];
-    }
-
     /**
      * 格式化字节显示
      */
+    #[AsTwigFilter(name: 'format_bytes')]
     public function formatBytes(?int $bytes): string
     {
-        if ($bytes === null || $bytes < 0) {
+        if (null === $bytes || $bytes < 0) {
             return '0 B';
         }
+
         return FileSizeField::getFormatValue($bytes);
     }
 }

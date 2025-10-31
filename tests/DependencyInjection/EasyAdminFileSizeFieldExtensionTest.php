@@ -1,22 +1,23 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tourze\EasyAdminFileSizeFieldBundle\Tests\DependencyInjection;
 
-use PHPUnit\Framework\TestCase;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
+use PHPUnit\Framework\Attributes\CoversClass;
 use Tourze\EasyAdminFileSizeFieldBundle\DependencyInjection\EasyAdminFileSizeFieldExtension;
+use Tourze\PHPUnitSymfonyUnitTest\AbstractDependencyInjectionExtensionTestCase;
 
-class EasyAdminFileSizeFieldExtensionTest extends TestCase
+/**
+ * @internal
+ */
+#[CoversClass(EasyAdminFileSizeFieldExtension::class)]
+final class EasyAdminFileSizeFieldExtensionTest extends AbstractDependencyInjectionExtensionTestCase
 {
-    public function testLoad(): void
+    protected function provideServiceDirectories(): iterable
     {
-        $container = new ContainerBuilder();
-        $extension = new EasyAdminFileSizeFieldExtension();
-
-        // 确认没有异常抛出
-        $extension->load([], $container);
-
-        // 简单测试配置加载是否成功
-        $this->assertTrue(true);
+        yield from parent::provideServiceDirectories();
+        yield 'Form';
+        yield 'Field';
     }
 }
