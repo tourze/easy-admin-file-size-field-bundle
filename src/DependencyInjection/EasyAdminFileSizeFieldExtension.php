@@ -6,7 +6,7 @@ namespace Tourze\EasyAdminFileSizeFieldBundle\DependencyInjection;
 
 use Tourze\SymfonyDependencyServiceLoader\AutoExtension;
 
-class EasyAdminFileSizeFieldExtension extends AutoExtension
+final class EasyAdminFileSizeFieldExtension extends AutoExtension
 {
     protected function getConfigDir(): string
     {
